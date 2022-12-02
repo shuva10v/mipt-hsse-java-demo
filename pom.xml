@@ -16,6 +16,13 @@
 	<properties>
 		<java.version>16</java.version>
 	</properties>
+
+	<modules>
+		<module>java-demo</module>
+		<module>spring-profiles</module>
+		<module>jpa-demo</module>
+	</modules>
+	<packaging>pom</packaging>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -25,6 +32,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.197</version>
 			<scope>test</scope>
 		</dependency>
 
