@@ -1,5 +1,6 @@
 package ru.mipt.hsse.course1.jpa.service;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 @SpringBootTest
-//@AutoConfigureMockMvc
 class OrdersServiceTest {
 
 	@Autowired
@@ -43,6 +43,13 @@ class OrdersServiceTest {
 		drink.setName("drink");
 		pizza = itemRepository.save(pizza);
 		drink = itemRepository.save(drink);
+	}
+
+	@AfterEach
+	public void cleanup() {
+		orderRepository.deleteAll();
+		itemRepository.deleteAll();
+		userRepository.deleteAll();
 	}
 	
 	@Test
@@ -80,8 +87,8 @@ class OrdersServiceTest {
 		assertEquals(drink, order2.getItem());
 		assertEquals(drink, order3.getItem());
 		assertEquals(2, order1.getCount());
-		assertEquals(2, order2.getCount());
-		assertEquals(2, order3.getCount());
+		assertEquals(3, order2.getCount());
+		assertEquals(3, order3.getCount());
 	}
 
 	@Test

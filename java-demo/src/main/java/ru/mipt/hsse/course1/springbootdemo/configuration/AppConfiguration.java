@@ -8,6 +8,7 @@ import ru.mipt.hsse.course1.springbootdemo.model.UserLombok;
 public class AppConfiguration {
 	@Bean
 	public UserLombok createUser() {
-		return new UserLombok();
+		return null;
+//		return new UserLombok();
 	}
 }

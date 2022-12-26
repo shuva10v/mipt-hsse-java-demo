@@ -12,6 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class GenericDataTest {
 
 	private ObjectMapper mapper = new ObjectMapper();
+
+	private ObjectMapper mapperWithTypes = new ObjectMapper().enableDefaultTyping();
+
 	@Test
 	public void testString() throws JsonProcessingException {
 		GenericData<?> strData = new GenericData<>(List.of("one", "two"));
@@ -45,6 +48,23 @@ class GenericDataTest {
 		GenericData<?> deser = mapper.readValue("{\"data\":[1,\"two\"]}}", GenericData.class);
 		assertEquals("Integer", deser.inferType());
 		deser = mapper.readValue("{\"data\":[\"one\",2]}}", GenericData.class);
+		assertEquals("String", deser.inferType());
+		List<String> s = List.of("1", "2");
+		List<Integer> s2 = List.of(1, 2);
+		List s3 = List.of("1", 2);
+		Integer tmp = (Integer) s3.get(0);
+	}
+
+	@Test
+	public void testTypes() throws JsonProcessingException {
+		GenericData<?> strData = new GenericData<>(List.of("one", "two"));
+		assertEquals("String", strData.inferType());
+
+		String json = mapperWithTypes.writeValueAsString(strData);
+		assertEquals("{\"data\":[\"one\",\"two\"]}", json);
+		GenericData<?> deser = mapperWithTypes.readValue(json, GenericData.class);
+		assertEquals(strData, deser);
+
 		assertEquals("String", deser.inferType());
 	}
 
