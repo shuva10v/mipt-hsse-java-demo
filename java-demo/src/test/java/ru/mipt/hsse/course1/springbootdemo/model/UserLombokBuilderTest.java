@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserLombokBuilderTest {
-	private Integer value;
+	private static Integer value;
 
 	@BeforeAll
-	public void init() {
+	public static void init() {
 		value = 100;
 	}
 
