@@ -1,5 +1,6 @@
 package ru.mipt.hsse.course1.jpa.service;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,13 @@ class OrdersServicePaginationTest {
 		pizza = itemRepository.save(pizza);
 		drink = itemRepository.save(drink);
 		cookies = itemRepository.save(cookies);
+	}
+
+	@AfterEach
+	public void cleanup() {
+		orderRepository.deleteAll();
+		itemRepository.deleteAll();
+		userRepository.deleteAll();
 	}
 	
 	@Test
