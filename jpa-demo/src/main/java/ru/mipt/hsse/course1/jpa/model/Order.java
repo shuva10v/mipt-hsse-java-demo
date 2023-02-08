@@ -1,5 +1,6 @@
 package ru.mipt.hsse.course1.jpa.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.ToString;
 
@@ -21,6 +22,7 @@ public class Order {
 	private Long id;
 
 	@ManyToOne
+	@JsonBackReference
 	private User user;
 
 	@ManyToOne

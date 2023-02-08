@@ -1,5 +1,6 @@
 package ru.mipt.hsse.course1.jpa.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -25,5 +26,6 @@ public class User {
 	private String name;
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+	@JsonManagedReference
 	private List<Order> orders;
 }
