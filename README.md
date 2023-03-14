@@ -9,3 +9,5 @@ Topics:
   * [MockMvc - testing controller endpoints](./jpa-demo/src/test/java/ru/mipt/hsse/course1/jpa/controller/DemoControllerIT.java)
 * Spring Security
   * [Securing endpoints with @Secured + @WithMockUser](./spring-security/)
+* Microservices
+  * [Using Feign](./feign-demo) 

@@ -21,6 +21,7 @@
 		<module>java-demo</module>
 		<module>spring-profiles</module>
 		<module>jpa-demo</module>
+		<module>feign-demo</module>
 		<module>spring-security</module>
 	</modules>
 	<packaging>pom</packaging>
