@@ -23,6 +23,7 @@
 		<module>jpa-demo</module>
 		<module>feign-demo</module>
 		<module>spring-security</module>
+		<module>rabbitmq</module>
 	</modules>
 	<packaging>pom</packaging>
 	<dependencies>

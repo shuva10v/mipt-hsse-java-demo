@@ -11,3 +11,4 @@ Topics:
   * [Securing endpoints with @Secured + @WithMockUser](./spring-security/)
 * Microservices
   * [Using Feign](./feign-demo) 
+  * [Working with RabbitMQ](./rabbitmq)
