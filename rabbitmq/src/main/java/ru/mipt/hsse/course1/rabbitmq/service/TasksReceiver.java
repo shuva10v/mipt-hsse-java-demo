@@ -1,15 +1,18 @@
 package ru.mipt.hsse.course1.rabbitmq.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.messaging.MessageHeaders;
 import org.springframework.stereotype.Service;
+import ru.mipt.hsse.course1.rabbitmq.configuration.BrokerConfiguration;
 
 @Service
 @Slf4j
 public class TasksReceiver {
-//	@RabbitListener(queues = BrokerConfiguration.QUEUE_NAME)
-//	public void receive(String text, MessageHeaders headers) throws InterruptedException {
-//		log.info("Got new message: " + text + ", headers: " + headers.values());
-//	}
+	@RabbitListener(queues = BrokerConfiguration.QUEUE_NAME)
+	public void receive(String text, MessageHeaders headers) throws InterruptedException {
+		log.info("Got new message: " + text + ", headers: " + headers.values());
+	}
 //
 //	@RabbitListener(queues = BrokerConfiguration.QUEUE_NAME, ackMode = "MANUAL")
 //	public void receive(String text, MessageHeaders headers, Channel channel,
