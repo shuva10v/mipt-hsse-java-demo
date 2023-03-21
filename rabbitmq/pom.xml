@@ -24,4 +24,40 @@
 		</dependency>
 	</dependencies>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>ru.mipt.hsse.course1.rabbitmq.Main</mainClass>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.42.0</version>
+				<configuration>
+					<images>
+						<image>
+							<name>rabbitmq-demo:${project.version}</name>
+							<build>
+								<from>openjdk:16</from>
+								<cmd>
+									<shell>
+										java -Djava.security.egd=file:/dev/./urandom -jar /maven/${project.artifactId}-${project.version}.${project.packaging}
+									</shell>
+								</cmd>
+								<assembly>
+									<!-- This is a predefined assembly.xml that will only copy your final artifact to the Docker image -->
+									<descriptorRef>artifact</descriptorRef>
+								</assembly>
+							</build>
+						</image>
+					</images>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
