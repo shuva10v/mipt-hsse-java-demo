@@ -6,10 +6,16 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class BrokerConfiguration {
-	public static final String QUEUE_NAME = "tasks_queue";
+	public static final String QUEUE_NAME1 = "tasks_queue1";
+	public static final String QUEUE_NAME2 = "tasks_queue2";
 	@Bean
-	public Queue queue() {
-		return new Queue(QUEUE_NAME, true);
+	public Queue queue1() {
+		return new Queue(QUEUE_NAME1, true);
+	}
+
+	@Bean
+	public Queue queue2() {
+		return new Queue(QUEUE_NAME2, true);
 	}
 
 }

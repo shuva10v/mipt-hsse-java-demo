@@ -4,3 +4,18 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
+  application:
+    image: rabbitmq-demo:0.0.1-SNAPSHOT
+    environment:
+      spring.rabbitmq.host: rabbitmq
+  prometheus:
+    image: prom/prometheus:v2.42.0
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+  grafana:
+    image: grafana/grafana:9.3.6
+    ports:
+      - "3000:3000"
+

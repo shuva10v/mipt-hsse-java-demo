@@ -12,5 +12,6 @@ Topics:
 * Microservices
   * [Using Feign](./feign-demo) 
   * [Working with RabbitMQ](./rabbitmq)
+  * [Working with prometheus](./rabbitmq)
 * Other
   * [Frontend plugin](./frontend)
