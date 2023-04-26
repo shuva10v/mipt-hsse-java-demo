@@ -25,6 +25,7 @@
 		<module>spring-security</module>
 		<module>rabbitmq</module>
 		<module>frontend</module>
+		<module>memory-leak</module>
 	</modules>
 	<packaging>pom</packaging>
 	<dependencies>
