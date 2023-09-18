@@ -26,6 +26,7 @@
 		<module>rabbitmq</module>
 		<module>frontend</module>
 		<module>memory-leak</module>
+		<module>basic-java</module>
 	</modules>
 	<packaging>pom</packaging>
 	<dependencies>
