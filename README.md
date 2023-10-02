@@ -3,7 +3,7 @@
 Topics:
           
 * Basic JAVA
-  * [OOP](./basic-java) 
+  * [OOP & basic Java](./basic-java) 
 * Testing
   * [Basic JUint](./jpa-demo/src/test/java/ru/mipt/hsse/course1/jpa/service/OrdersServiceTest.java)
   * [Hamcrest matchers](./jpa-demo/src/test/java/ru/mipt/hsse/course1/jpa/service/OrdersServicePaginationHamcrestTest.java)

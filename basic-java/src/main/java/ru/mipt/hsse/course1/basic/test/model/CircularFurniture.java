@@ -1,15 +1,13 @@
 package ru.mipt.hsse.course1.basic.test.model;
 
-abstract public class RectangularFurniture implements FurnitureInterface {
-	protected int width;
-	protected int height;
+abstract public class CircularFurniture implements FurnitureInterface {
+	protected int radius;
 
-	public RectangularFurniture(int width, int height) {
-		this.width = width;
-		this.height = height;
+	public CircularFurniture(int radius) {
+		this.radius = radius;
 	}
 
 	public int area() {
-		return width * height;
+		return (int) (radius * radius * Math.PI);
 	}
 }

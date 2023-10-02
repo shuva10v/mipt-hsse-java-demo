@@ -1,10 +1,10 @@
 package ru.mipt.hsse.course1.basic.test.model;
 
-abstract public class Furniture {
+abstract public class RectangularFurniture implements FurnitureInterface {
 	protected int width;
-	protected int height;
+	final protected int height;
 
-	public Furniture(int width, int height) {
+	public RectangularFurniture(int width, int height) {
 		this.width = width;
 		this.height = height;
 	}
