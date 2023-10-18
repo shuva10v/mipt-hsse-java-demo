@@ -1,19 +1,32 @@
 package ru.mipt.hsse.course1.basic.test;
 
+import ru.mipt.hsse.course1.basic.test.exceptions.FurnitureNotFoundException;
 import ru.mipt.hsse.course1.basic.test.model.Chair;
 import ru.mipt.hsse.course1.basic.test.model.Customer;
+import ru.mipt.hsse.course1.basic.test.model.SquareFeetDecorator;
 import ru.mipt.hsse.course1.basic.test.model.Table;
 
 public class Demo {
-//	public static void test(Table t) {
-//		t.height = 100;
-//	}
 
-	public static void test2(int height) {
-		height = 100;
+	public static void registry() throws FurnitureNotFoundException {
+		ChairFactory.register("table", () -> new Table(100, 200));
+		ChairFactory.register("chair", () -> new Chair(100, 200));
+
+		var furniture1 = ChairFactory.create("table");
+		var furniture2 = ChairFactory.create("chair");
+
+		System.out.println(furniture1);
+		System.out.println(furniture2);
 	}
 
-	public static void main(String[] args) {
+	public static void decorator() throws FurnitureNotFoundException {
+		var t = new Table(100, 200);
+		System.out.println(t.area());
+		var wrapper = new SquareFeetDecorator(t);
+		System.out.println(wrapper.area());
+	}
+
+	public static void simpleActions() {
 		Table t = new Table(100, 200);
 		System.out.println(Table.name);
 		t.enlarge(500);
@@ -24,14 +37,9 @@ public class Demo {
 		Customer customer = new Customer(10000);
 		customer.buy(t);
 		customer.buy(chair);
+	}
 
-//		System.out.println(t.height);
-//		test(t);
-//		System.out.println(t.height);
-
-//		int height = 0;
-//		System.out.println(height);
-//		test2(height);
-//		System.out.println(height);
+	public static void main(String[] args) throws FurnitureNotFoundException {
+		registry();
 	}
 }
