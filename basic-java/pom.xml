@@ -8,4 +8,18 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>basic-java</artifactId>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>
+						ru.mipt.hsse.course1.basic.test.Collections
+					</mainClass>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
