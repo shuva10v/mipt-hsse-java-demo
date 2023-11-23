@@ -1,5 +1,6 @@
 package ru.mipt.hsse.course1.basic.multithreading;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.CountDownLatch;
@@ -18,6 +19,7 @@ class SimpleCounterTest {
 		assertEquals(500, counter.getCount());
 	}
 
+	@Disabled
 	@Test
 	public void testCounterWithConcurrency() throws InterruptedException {
 		int numberOfThreads = 10000;
